@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import startVideo from "../../assets/video/TEST/test.mp4";
 import "../../styles/pageStyles.css";
 
 const Story = [
