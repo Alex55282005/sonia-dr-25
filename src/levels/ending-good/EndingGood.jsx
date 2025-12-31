@@ -29,19 +29,38 @@ const EndingGood = () => {
     );
   };
 
+  const StartPlayVideo = async () => {
+    const video = document.querySelector("#video");
+
+    try {
+      await video.play();
+      document.querySelector("#play-video-btn").style.display = "none";
+    } catch (err) {
+      console.error("Не удалось запустить видео:", err);
+    }
+  };
+
   return (
     <div className="container">
       <div className="overlay-after-rift" id="overlay-rift"></div>
       <div className="video-cont">
         <video
+          id="video"
           width={800}
-          controls
           onPlay={handleVidoPlay}
           onEnded={handleVideoEnd}
           style={{ background: "black" }}
         >
           <source src={endingVideo} type="video/mp4" />
         </video>
+        <button
+          id="play-video-btn"
+          className="play-video-btn"
+          onClick={StartPlayVideo}
+          style={{ display: "block" }}
+        >
+          Смотреть
+        </button>
       </div>
       {showForm && <EndForm />}
     </div>
